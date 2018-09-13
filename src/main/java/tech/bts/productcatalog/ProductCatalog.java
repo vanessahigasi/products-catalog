@@ -19,8 +19,13 @@ public class ProductCatalog {
         products.add(p2);
         products.add(p3);
 
+        writesCSV(products);
 
-        System.out.println(p1);
+        System.out.println("File written");
+
+    }
+
+    public static void writesCSV (List<Product> products) throws Exception {
 
         PrintWriter writer = new PrintWriter("products.csv");
 
@@ -37,10 +42,6 @@ public class ProductCatalog {
 
         }
 
-
         writer.close();
-
-        System.out.println("File written");
-
     }
 }
