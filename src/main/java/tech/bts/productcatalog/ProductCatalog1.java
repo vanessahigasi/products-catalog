@@ -1,8 +1,12 @@
 package tech.bts.productcatalog;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.PrintWriter;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -30,9 +34,16 @@ public class ProductCatalog1 {
 
 
     public static void main(String[] args) throws Exception{
-        Scanner input = new Scanner(System.in);
 
-        List<Product>products = new ArrayList<Product>();//creates an empty list
+        Scanner input = new Scanner(System.in);//scanner can read from keyboard
+
+        //read the products from the file
+        //prepare reader to read from the .json file
+        BufferedReader reader = new BufferedReader(new FileReader("products.json"));
+        String  json = reader.readLine(); // read the file
+        Gson gson = new Gson(); // create gson
+        Type type = new TypeToken<List<Product>>(){}.getType(); // specify the type
+        List<Product> products = gson.fromJson(json, type); //converting json in list of products
 
 
         //how can I put this into a variable?"
