@@ -9,7 +9,7 @@ public class ProductCatalog {
 
     public static void main(String[] args) throws Exception {
 
-        //CVS - comma separeted values
+        //CVS - comma separated values
         //a,a,a,a,a
 
         Product p1 = new Product("iPhone X", 1000, 50);
