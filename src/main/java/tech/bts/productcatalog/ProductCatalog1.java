@@ -1,5 +1,8 @@
 package tech.bts.productcatalog;
 
+import com.google.gson.Gson;
+
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -26,7 +29,7 @@ public class ProductCatalog1 {
      */
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         Scanner input = new Scanner(System.in);
 
         List<Product>products = new ArrayList<Product>();//creates an empty list
@@ -43,6 +46,9 @@ public class ProductCatalog1 {
 
 
             if (line.equals("exit")) {
+
+                writesJSON(products);//store the product in a file
+
                 break;
 
             } else if (line.equals("add")) {
@@ -84,6 +90,18 @@ public class ProductCatalog1 {
 
         }
 
+    }
+
+    public static void writesJSON (List<Product> products) throws Exception {
+
+        Gson gson = new Gson();
+        String json = gson.toJson(products); //serializing (object to string)
+
+        PrintWriter writer = new PrintWriter("products.json");
+
+        writer.println(json);
+
+        writer.close();
     }
 
 
