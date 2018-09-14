@@ -45,35 +45,37 @@ public class ProductCatalog1 {
             if (line.equals("exit")) {
                 break;
 
-            }
+            } else if (line.equals("add")) {
 
-            if (line.equals("add")) {
+                if (line.equals("add")) {
 
-                System.out.print("Product name? ");
-                String name = input.nextLine();
+                    System.out.print("Product name? ");
+                    String name = input.nextLine();
 
-                System.out.print("Price? ");
-                Double price = Double.parseDouble(input.nextLine());
+                    System.out.print("Price? ");
+                    Double price = Double.parseDouble(input.nextLine());
 
-                System.out.print("Units? ");
-                int units = Integer.parseInt(input.nextLine());
+                    System.out.print("Units? ");
+                    int units = Integer.parseInt(input.nextLine());
 
-                Product product = new Product(name, price, units);
+                    Product product = new Product(name, price, units);
 
-                products.add(product);
+                    products.add(product);
 
-                System.out.println("Product added: " + product);
+                    System.out.println("Product added: " + product);
 
-            }
+                }
 
-            if (line.equals("list")){
+            } else if (line.equals("list")){
 
                 //print the list of product I have added
+
                 for (int i = 0; i < products.size(); i++) {
                     Product product = products.get(i);
                     System.out.println(product);
 
-                //for (Product
+                //for (Product product : products)
+                   // sout  (product);
 
                 }
 
